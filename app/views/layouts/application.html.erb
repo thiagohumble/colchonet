@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colchonet</title>
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+	<header>	
+		<div>
+			<h1><%= link_to "colcho.net", root_path %></h1>
+			<nav>
+				<ul>
+					<li><%= link_to "Quartos", rooms_path %></li>
+					<li><%= link_to "Cadastro", new_user_path %></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+<div id="content">
+	<% if notice.present? %>
+	<p id="notice"><%= notice %></p>
+	<% end %>
+	<% if alert.present? %>
+	<p id="alert"><%= alert%></p>
+
+	#content {
+	text-align: left;
+	width: 0 auto;
+
+	h1 {
+	font-size: 1.5em;
+	}
+	a, a:visited, a:hover {
+	color: #242
+	&:hover {
+	text-decoration: underline;
+	}
+
+}	
+
+	ul, form, p {
+	margin: 10px 0;
+	}
+
+}
+
+form {
+	label {
+	display: block;
+	margin: 5px 0;
+	color: #444;
+	}
+	input[tupe=text], input[type=password], textare {
+	color: #444;
+	fornt-size: 12px;
+	border: 1px solid #ccc;
+	padding: 5px;
+	width: 200px;
+	outline: 0;
+
+	@include shadow(rgba(0,0,0, 0.1), 0px, 0px, 8px);
+	&:focus {
+	border: 1px solid #c9c9c9;
+	}
+
+}
+	textarea {
+	width: 400px;
+	height: 200px;
+	}
+}
+
+
+<% end %>
+
+<%= yield %>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
